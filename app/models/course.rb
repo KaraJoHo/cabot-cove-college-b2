@@ -8,4 +8,9 @@ class Course < ApplicationRecord
     residents.count
   end
 
+  def self.sort_alpha 
+    Course.order(:name)
+  end
+
+
 end

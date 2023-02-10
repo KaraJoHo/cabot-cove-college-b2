@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   def index 
-    @courses = Course.all
-  end
-
+    @courses = Course.sort_alpha
+  end 
 end
