@@ -11,4 +11,8 @@ class Resident < ApplicationRecord
     Resident.average(:age).to_f
   end
 
+  def self.sort_alpha 
+    Resident.order(:name)
+  end
+
 end
