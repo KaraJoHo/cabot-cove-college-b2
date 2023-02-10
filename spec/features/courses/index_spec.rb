@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Course, type: :model do
+RSpec.describe "Courses Index Page" do
   let!(:seth) {Resident.create!(name: "Seth Guy", age:70, occupation: "Retired")}
   let!(:jessica) {Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery Writer")} 
 
@@ -11,20 +11,15 @@ RSpec.describe Course, type: :model do
   let!(:rescourse_2) {ResidentCourse.create!(resident_id: jessica.id, course_id: course_2.id)}
   let!(:rescourse_3) {ResidentCourse.create!(resident_id: seth.id, course_id: course_2.id)}
 
-  describe 'validations' do
-    it {should validate_presence_of :name}
-  end
-
-  describe 'relationships' do
-    it {should have_many :resident_courses}
-    it {should have_many(:residents).through(:resident_courses)}
-  end
-
-  describe 'number_residents_per_course' do 
-    it 'has the number of residents in each course' do 
-      expect(course_1.number_residents_per_course).to eq(1)
-      expect(course_2.number_residents_per_course).to eq(2)
+  describe 'As a visitor' do 
+    describe 'When I visit /courses' do 
+      it' has a list of courses and the number of residents enrolled in each' do 
+        visit '/courses' 
+        expect(page).to have_content(course_1.name)
+        expect(page).to have_content(course_2.name)
+        expect(page).to have_content("#{course_1.name}: 1")
+        expect(page).to have_content("#{course_2.name}: 2")
+      end
     end
   end
-
 end
