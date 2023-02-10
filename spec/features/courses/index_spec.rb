@@ -22,6 +22,12 @@ RSpec.describe "Courses Index Page" do
         expect(page).to have_content("#{course_2.name}: 2")
 
       end
+
+      it 'sorts the courses alphabetically' do 
+        visit '/courses'
+        
+        expect(course_1.name).to appear_before(course_2.name)
+      end
     end
   end
 end
