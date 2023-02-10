@@ -31,4 +31,10 @@ RSpec.describe Resident, type: :model do
     end
   end
 
+  describe '::sort_alpha' do 
+    it 'sorts the residents alphabetically' do 
+      expect(Resident.sort_alpha).to eq([jessica, seth])
+    end
+  end
+
 end
