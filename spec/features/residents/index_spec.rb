@@ -7,6 +7,7 @@ RSpec.describe 'Resident Index' do
   # end
   let!(:jessica) {Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery Writer")}
   let!(:seth) {Resident.create!(name: "Seth Hazlitt", age:70, occupation: "Town Doctor")}
+  
   describe 'as a visitor' do 
     describe 'when I visit /residents' do 
       it 'has a list of resident with their information' do 
@@ -19,6 +20,13 @@ RSpec.describe 'Resident Index' do
         expect(page).to have_content(seth.age)
         expect(page).to have_content(seth.occupation)
 
+      end
+
+      it 'displays the average age of all residents' do 
+        visit '/residents'
+        # save_and_open_page
+
+        expect(page).to have_content("Average Age: #{Resident.average_age}")
       end
     end
   end
