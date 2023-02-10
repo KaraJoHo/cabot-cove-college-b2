@@ -5,7 +5,7 @@ class ResidentsController < ApplicationController
 
   def show 
     @resident = Resident.find(params[:id])
-    @resident_courses = @resident.courses
+    @resident_courses = @resident.courses_list
   end
 
 end
