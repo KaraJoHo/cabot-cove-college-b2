@@ -27,4 +27,10 @@ RSpec.describe Course, type: :model do
     end
   end
 
+  describe '::sort_alpha' do 
+    it 'sorts coures alphabetically' do 
+      expect(Course.sort_alpha).to eq([course_1, course_2])
+    end
+  end
+
 end
