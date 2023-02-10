@@ -1,0 +1,9 @@
+<h> Residents </h>
+
+<% @residents.each do |resident| %>
+  <h3><%= resident.name %></h3>
+  <ul>
+    <li>Age: <%= resident.age %></li>
+    <li>Occupation: <%= resident.occupation %></li>
+  </ul>
+<% end %>
