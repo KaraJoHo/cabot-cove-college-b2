@@ -7,4 +7,8 @@ class Resident < ApplicationRecord
     courses
   end
 
+  def self.average_age 
+    Resident.average(:age).to_f
+  end
+
 end
