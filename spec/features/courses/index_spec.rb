@@ -15,10 +15,12 @@ RSpec.describe "Courses Index Page" do
     describe 'When I visit /courses' do 
       it' has a list of courses and the number of residents enrolled in each' do 
         visit '/courses' 
+        # save_and_open_page
         expect(page).to have_content(course_1.name)
         expect(page).to have_content(course_2.name)
         expect(page).to have_content("#{course_1.name}: 1")
         expect(page).to have_content("#{course_2.name}: 2")
+
       end
     end
   end

@@ -1,0 +1,5 @@
+<h>Courses</h>
+
+<% @courses.each do |course| %>
+  <p><strong><%=course.name%>: </strong><%= course.number_residents_per_course %></p>
+<% end %>
